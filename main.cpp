@@ -12,6 +12,18 @@ void printVector(const vector<int>&);
 //printVector
 //@param const vector<int>& - the vector to be printed
 
+void reverse(const vector<int>&);
+//reverse
+//@param const vector<int>& - vector to be printed backwards
+
+void printEvens(const vector<int>&);
+//printEvens - only prints even numbers in vector
+//@param const vector<int>& - the vector to be printed
+
+void replace(vector<int>&);
+//replace
+//@param vector<int>& - vector in question
+
 //Main Function
 int main()
 {
@@ -21,6 +33,9 @@ int main()
 	fillVector(myVector);
 	printVector(myVector);
 
+	reverse(myVector);
+	printEvens(myVector);
+	replace(myVector);
 
 	return 0;
 }
@@ -50,5 +65,48 @@ void printVector(const vector<int>& newMyVector)
 		cout << newMyVector[i] << " ";
 	}
 
+	cout << endl;
+}
+
+void reverse(const vector<int>& newMyVector)
+{
+
+	cout << "Vector reversed: ";
+	for (unsigned int i = newMyVector.size(); i > 0; i--)
+	{
+		cout << newMyVector[i - 1] << " ";
+	}
+
+	cout << endl;
+}
+
+void printEvens(const vector<int>& newMyVector)
+{
+	cout << "Even Vectors: ";
+	for (unsigned int i = 0; i < newMyVector.size(); i++)
+	{
+		if ((newMyVector[i] % 2) == 0)
+		{
+			cout << newMyVector[i] << " ";
+		}
+	}
+	cout << endl;
+}
+
+void replace(vector<int>& newMyVector)
+{
+	int old, replace;
+
+	cout << "Type in a number to be replaced with another number: ";
+	cin >> old >> replace;
+
+	for (unsigned int i = 0; i < newMyVector.size(); i++)
+	{
+		if (newMyVector[i] == old)
+		{
+			newMyVector[i] = replace;
+		}
+	}
+	printVector(newMyVector);
 	cout << endl;
 }
